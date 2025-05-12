@@ -65,13 +65,16 @@ public class Queue18 {
     public void Enqueue(int dt) {
         if (IsFull()) {
             System.out.println("Queue sudah penuh");
+            System.exit(1);
         } else {
             if (IsEmpty()) {
                 front = rear = 0;
-            } else {
+            }
+            else {
                 if (rear == max -1) {
                     rear = 0;
-                } else {
+                }
+                else {
                     rear++;
                 }
             }
@@ -84,15 +87,18 @@ public class Queue18 {
         int dt = 0;
         if (IsEmpty()) {
             System.out.println("Queue masih kosong");
+            System.exit(1);
         } else {
             dt = data[front];
             size--;
             if (IsEmpty()) {
                 front = rear = -1;
-            } else {
-                if (front == max -1) {
+            }
+            else {
+                if (front == max - 1) {
                     front = 0;
-                } else {
+                }
+                else {
                     front++;
                 }
             }

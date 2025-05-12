@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class QueueMain18 {
     public static void menu() {
-        System.out.print("Masukkan operasi yang diinginkan : ");
+        System.out.println("Masukkan operasi yang diinginkan : ");
         System.out.println("1. Enqueue");
         System.out.println("2. Denqueue");
         System.out.println("3. Print");

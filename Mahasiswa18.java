@@ -12,7 +12,7 @@ public class Mahasiswa18 {
         this.kelas = kelas;
     }
 
-    public void tampilData() {
+    public void tampilkanData() {
         System.out.println(nim + " " + nama + " " + prodi + " " + kelas);
     }
 }

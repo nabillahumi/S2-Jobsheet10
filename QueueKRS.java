@@ -1,13 +1,13 @@
 public class QueueKRS {
     
-    DataMahasiswa[] antrian;
-    int front, rear, size, jumlah;
+    DataMahasiswa[] data;
+    int front, rear, size, max;
     int totalDilayani;
 
     // Konstruktor
-    public QueueKRS(int jumlah) {
-        this.jumlah = jumlah;
-        antrian = new DataMahasiswa[jumlah];
+    public QueueKRS(int max) {
+        this.max = max;
+        data = new DataMahasiswa[max];
         front = 0;
         rear= -1;
         size = 0;
@@ -24,7 +24,7 @@ public class QueueKRS {
     }
 
     public boolean IsFull() {
-        if (size == jumlah) {
+        if (size == max) {
             return true;
         }
         else {
@@ -35,7 +35,7 @@ public class QueueKRS {
     public void clear() {
         front = 0;
         rear = -1;
-        jumlah = 0;
+        max = 0;
         System.out.println("Seluruh antrian telah dihapus.");
     }
 
@@ -44,8 +44,8 @@ public class QueueKRS {
             System.out.println("Antrian sudah penuh.");
             return;
         }
-        rear = (rear + 1) % jumlah;
-        antrian[rear] = m;
+        rear = (rear + 1) % max;
+        data[rear] = m;
         size++;
         System.out.println(m.namaLengkap + " berhasil masuk ke antrian.");
     }
@@ -59,9 +59,9 @@ public class QueueKRS {
         System.out.println("Proses KRS untuk 2 mahasiswa:");
         int jumlahYangDiproses = 0;
         while (jumlahYangDiproses < 2 && size > 0) {
-            DataMahasiswa m = antrian[front];
+            DataMahasiswa m = data[front];
             m.infoMahasiswa();
-            front = (front + 1) % jumlah;
+            front = (front + 1) % max;
             size--;
             totalDilayani++;
             jumlahYangDiproses++;
@@ -76,9 +76,9 @@ public class QueueKRS {
 
         System.out.println("Daftar antrian mahasiswa:");
         for (int i = 0; i < size; i++) {
-            int idx = (front + i) % jumlah;
+            int idx = (front + i) % max;
             System.out.print((i + 1) + ". ");
-            antrian[idx].infoMahasiswa();
+            data[idx].infoMahasiswa();
         }
     }
 
@@ -90,8 +90,8 @@ public class QueueKRS {
 
         System.out.println("Dua mahasiswa pertama dalam antrian:");
         for (int i = 0; i < 2; i++) {
-            int idx = (front + i) % jumlah;
-            antrian[idx].infoMahasiswa();
+            int idx = (front + i) % max;
+            data[idx].infoMahasiswa();
         }
     }
 
@@ -100,7 +100,7 @@ public class QueueKRS {
             System.out.println("Tidak ada mahasiswa di antrian.");
         } else {
             System.out.println("Mahasiswa terakhir di antrian:");
-            antrian[rear].infoMahasiswa();
+            data[rear].infoMahasiswa();
         }
     }
 
